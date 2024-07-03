@@ -1,18 +1,13 @@
-/* 
-ბინარული ძებნის ალგორითმი (ორობითი ძებნა)
-მოცემულია სორტირებული მასივი და საძიებო მნიშვნელობა. 
-
-*/
-
-
+/* ბინარული ძებნის ალგორითმი (ორობითი ძებნა)
+მოცემულია სორტირებული მასივი და საძიებო მნიშვნელობა.
+ */
 //მასივი
 const array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 //მთვლელი
 let count = 0
 //item - საძიებო მნიშვნელობა
 function binarySearch(array, item) {
-//უნდა ვიპოვოთ მოცემული მასივის ცენტრალური ელემენტი
-//ამისათვის საჭიროა ვიცოდეთ პირველი და ბოლო ელემენტის ინდექსები
+//უნდა ვიპოვოთ მოცემული მასივის ცენტრალური ელემენტი. ამისათვის საჭიროა ვიცოდეთ პირველი და ბოლო ელემენტის ინდექსები
     let start = 0
     let end = array.length
 //ცენტრალური ელემენტი    
@@ -21,10 +16,7 @@ function binarySearch(array, item) {
     let found = false
 //თუ არ არსებობს ასეთი ელემენტი დააბრუნებს -1 ინდექსის ნომერს
     let position = -1
-
-
     //რეალიზაცია გაუკეთოთ ციკლებით
-    
     while (found === false && start <= end) {
         count+=1
         middle = Math.floor((start + end) / 2); // დამრგვალება ქვედა ზღვრამდე როცა (start + end) კენტია
@@ -41,10 +33,7 @@ function binarySearch(array, item) {
     }
     return position;
 }
-
-
 //რეალიზაცია გაუკეთოთ რეკურსიით
-
 function recursiveBinarySearch(array, item, start, end) {
     let middle = Math.floor((start + end) / 2); // შუა ელემენტის ინდექსის პოვნა
     count += 1 //მთვლელი
@@ -57,6 +46,5 @@ function recursiveBinarySearch(array, item, start, end) {
         return recursiveBinarySearch(array, item, middle + 1, end ) //თავისი თავის გამოძახება start=middle+1 და end=end
     }
 }
-
 console.log(recursiveBinarySearch(array, 0, 0, array.length))
 console.log(count)
